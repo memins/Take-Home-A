@@ -1,5 +1,5 @@
 {
-  "name": "app-name",
+  "name": "take-home-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:appName": "node dist/app-name/server/server.mjs"
+    "serve:ssr:TakeHomeApp": "node dist/take-home-app/server/server.mjs"
   },
   "private": true,
   "dependencies": {
