@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormDataService } from '../form-data.service';
 
 @Component({
   selector: 'app-task-1',
@@ -9,7 +10,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class Task1Component implements OnInit {
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private formDataService: FormDataService
+  ) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -17,5 +21,13 @@ export class Task1Component implements OnInit {
       select: ['', Validators.required],
       date: ['', Validators.required],
     });
+  }
+
+  onSubmit() {
+    if (this.form.valid) {
+      this.formDataService.addFormData(this.form.value);
+      console.log(this.form.value);
+      this.form.reset();
+    }
   }
 }
