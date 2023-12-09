@@ -1,5 +1,34 @@
-<div *ngFor="let data of formData">
-  <p>Text: {{ data.text }}</p>
-  <p>Select: {{ data.select }}</p>
-  <p>Date: {{ data.date }}</p>
+<div class="container">
+  <ul>
+    <li *ngFor="let data of formData; let i = index">
+      <form [formGroup]="forms[i]" *ngIf="forms[i]" class="form">
+        <div class="form-group">
+          <label>
+            Text:
+            <input formControlName="text" class="form-control" />
+          </label>
+        </div>
+        <div class="form-group">
+          <label>
+            Select:
+            <input formControlName="select" class="form-control" />
+          </label>
+        </div>
+        <div class="form-group">
+          <label>
+            Date:
+            <input formControlName="date" class="form-control" />
+          </label>
+        </div>
+        <div class="form-group">
+          <button (click)="updateFormData(i)" class="btn btn-primary">
+            Save
+          </button>
+          <button (click)="deleteFormData(i)" class="btn btn-danger">
+            Delete
+          </button>
+        </div>
+      </form>
+    </li>
+  </ul>
 </div>
