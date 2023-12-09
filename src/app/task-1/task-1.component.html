@@ -1,6 +1,6 @@
 <form [formGroup]="form" class="form" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <input type="text" formControlName="text" class="form-control" />
+    <app-input type="text" formControlName="text" />
     <div *ngIf="form.controls['text'].invalid && form.controls['text'].touched">
       <small
         class="error-message"
@@ -30,7 +30,7 @@
     </select>
   </div>
   <div class="form-group">
-    <input type="date" formControlName="date" class="form-control" />
+    <app-input type="date" formControlName="date" />
   </div>
   <button type="submit" [disabled]="form.invalid" class="submit-btn">
     Submit
